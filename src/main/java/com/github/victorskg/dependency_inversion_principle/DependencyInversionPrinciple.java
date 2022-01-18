@@ -8,12 +8,12 @@ import main.java.com.github.victorskg.dependency_inversion_principle.good.GoodSh
 public class DependencyInversionPrinciple {
 
     public static void main(String[] args) throws IllegalAccessException {
-        var azulServuce = new AzulShippingService();
+        var azulService = new AzulShippingService();
         var sedexService = new SedexShippingService();
         var shippingProduct = new ShippingProduct("PS5", 1, "João Victor", "Rua Teodoro de Castro");
 
         // Bad Code
-        var badShippingService = new BadShippingService(azulServuce, sedexService);
+        var badShippingService = new BadShippingService(azulService, sedexService);
         badShippingService.send(shippingProduct, "Azul Express");
         badShippingService.send(shippingProduct, "SEDEX");
 
